@@ -13,7 +13,8 @@ function index(req, res, next) {
 }
 
 function newFlight(req, res, next) {
-    res.render('flights/new');
+    const newFlight = new Flight();
+    res.render('flights/new', {defaultDeparture: newFlight.departs});
 };
 
 function create(req, res, next) {
