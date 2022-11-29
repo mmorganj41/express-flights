@@ -1,7 +1,11 @@
 const Flight = require('../model/flight');
 
+function index(req, res, next) {
+    res.send('index works');
+}
+
 function newFlight(req, res, next) {
-    res.render('flights/new')
+    res.render('flights/new');
 };
 
 function create(req, res, next) {
@@ -9,15 +13,17 @@ function create(req, res, next) {
     Flight.create(req.body, function(err, flight) {
         if(err){
             console.log(err);
-            res.send('err creating, check terminal');
-        }
-        console.log(flight)
+            res.redirect('/flights/new');
+        } else {
+            console.log(flight)
 
-        res.redirect('/');
+            res.redirect('/');
+        }
     })
 }
 
 module.exports = {
+    index,
     new: newFlight,
-    create
+    create,
 };
