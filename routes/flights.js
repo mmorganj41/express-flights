@@ -7,8 +7,6 @@ router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
-router.get('/new', function(req, res, next) {
-  res.send('new works');
-})
+router.get('/new', flightsController.new);
 
 module.exports = router;
