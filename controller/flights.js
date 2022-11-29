@@ -1,7 +1,15 @@
 const Flight = require('../model/flight');
 
 function index(req, res, next) {
-    res.send('index works');
+    Flight.find({}, (err, flights) => {
+        if (err) {
+            console.log(err);
+            res.redirect('/');
+        } else {
+            console.log(flights);
+            res.render('flights/index', {flights});
+        }
+    })   
 }
 
 function newFlight(req, res, next) {
@@ -17,7 +25,7 @@ function create(req, res, next) {
         } else {
             console.log(flight)
 
-            res.redirect('/');
+            res.redirect('/flights/');
         }
     })
 }
