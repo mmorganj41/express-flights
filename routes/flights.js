@@ -9,4 +9,6 @@ router.get('/', function(req, res, next) {
 
 router.get('/new', flightsController.new);
 
+router.post('/', flightsController.create);
+
 module.exports = router;
