@@ -7,7 +7,7 @@ function index(req, res, next) {
             res.redirect('/');
         } else {
             console.log(flights);
-            res.render('flights/index', {flights});
+            res.render('flights/index', {flights: flights.sort((a,b) => a.departs - b.departs)});
         }
     })   
 }
