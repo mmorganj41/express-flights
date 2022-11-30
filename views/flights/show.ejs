@@ -26,11 +26,12 @@
         action="/flights/<%= flight._id %>/destinations">
         <label>Airport:</label>
         <select name="airport">
-            <option value="AUS">AUS</option>
-            <option value="DFW">DFW</option>
-            <option value="DEN">DEN</option>
-            <option value="LAX">LAX</option>
-            <option value="SAN">SAN</option>
+            <% const airports = ['AUS', 'DFW', 'DEN', 'LAX', 'SAN'] %>
+            <% airports.forEach(airport => { %>
+                <% if (!(flight.airport === airport || flight.destinations.findIndex(destination => destination.airport === airport) > -1)) { %>
+                    <option value=<%= airport %>><%= airport %></option>
+                <% } %>
+            <% }) %>
         </select>
         <label>Arrival:</label>
             <input type="datetime-local" name="arrival" %>">
