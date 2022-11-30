@@ -32,8 +32,14 @@ function create(req, res, next) {
 }
 
 function show(req, res, next) {
-    console.log(req.params.id);
-    res.render('flights/show');
+    Flight.findById(req.params.id, (err, flight) => {
+        if (err) {
+            console.log(err);
+            return res.send('Error showing, check terminal')
+        }
+
+        res.render('flights/show', {flight});
+    })
 }
 
 module.exports = {

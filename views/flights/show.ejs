@@ -5,10 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' href='/stylesheets/style.css' />
-    <title>Document</title>
+    <title>flight.flightNo</title>
 </head>
 <body>
     <%- include('partials/nav') -%>
-    
+    <section id="show-page">
+        <div>Date: </div>
+        <div><%= flight.departs %></div>
+        <div>Flight Number: </div>
+        <div><%= flight.flightNo %></div>
+        <div>Airline: </div>
+        <div><%= flight.airline %></div>
+        <div>Departure Airport: </div>
+        <div><%= flight.airport %></div>
+        <div>Destinations: </div>
+        <div><%= flight.desinations %></div>
+      </section>
 </body>
 </html>
+<td><%= flight.airline %></td>
+<td><%= flight.airport %></td>
+<td><%= flight.flightNo %></td>
+<td><%= flight.departs %></td>
