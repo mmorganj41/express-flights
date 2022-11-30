@@ -31,8 +31,14 @@ function create(req, res, next) {
     })
 }
 
+function show(req, res, next) {
+    console.log(req.params.id);
+    res.redirect('/flights/');
+}
+
 module.exports = {
     index,
     new: newFlight,
     create,
+    show,
 };
