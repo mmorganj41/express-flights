@@ -33,7 +33,7 @@ function create(req, res, next) {
 
 function show(req, res, next) {
     console.log(req.params.id);
-    res.redirect('/flights/');
+    res.render('flights/show');
 }
 
 module.exports = {
