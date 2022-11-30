@@ -97,3 +97,19 @@ input[type=submit] {
   margin: 5px;
   float: right;
 }
+
+#show-page {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 1rem;
+  margin: 50px;
+  padding: 10px;
+}
+
+#show-page > div {
+  border-bottom: whitesmoke 1px solid;
+}
+
+#show-page div:nth-child(even) {
+  font-weight: bold;
+}

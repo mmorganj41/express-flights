@@ -10,10 +10,10 @@
 <body>
     <%- include('partials/nav') -%>
     <section id="show-page">
-        <div>Date: </div>
-        <div><%= flight.departs %></div>
         <div>Flight Number: </div>
         <div><%= flight.flightNo %></div>
+        <div>Date: </div>
+        <div><%= flight.departs %></div>
         <div>Airline: </div>
         <div><%= flight.airline %></div>
         <div>Departure Airport: </div>
@@ -23,7 +23,3 @@
       </section>
 </body>
 </html>
-<td><%= flight.airline %></td>
-<td><%= flight.airport %></td>
-<td><%= flight.flightNo %></td>
-<td><%= flight.departs %></td>
