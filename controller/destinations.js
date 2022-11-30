@@ -23,6 +23,31 @@ function create(req, res, next) {
     
 }
 
+function deleteOne(req, res, next) {
+    console.log(req.params.id);
+    Flight.findOne({'destinations.id': req.params.id}, (err, flight) => {
+        if (err) {
+            console.log(err);
+            return res.send('Error finding destination to delete');
+        }
+
+        flight.destinations.remove(req.params.id);
+
+        console.log(flight);
+
+        flight.save(err => {
+            if (err) {
+                console.log(err);
+                return res.send('Error saving flight to database')
+            }
+            res.redirect(`/flights/${flight._id}`);
+        })
+
+        
+    });
+}
+
 module.exports = {
     create,
+    delete: deleteOne,
 }

@@ -51,7 +51,7 @@
                   <tr>
                     <td><%= destination.airport %></td>
                     <td><%= destination.arrival %></td>
-                    <td><form action="/flights/<%= flight._id%>/destinations/<%= destination._id %>?_method=DELETE" method="post" id="deletedestination">
+                    <td><form action="/destinations/<%= destination._id %>?_method=DELETE" method="post" id="deletedestination">
                         <button type="submit">DELETE</button>
                     </form></td>
                   </tr>
@@ -59,7 +59,7 @@
               </tbody>
             </table>
           <% } else { %>
-            <h5>No Desinations</h5>
+            <h5>No Destinations</h5>
           <% } %>
     </main>
 </body>
