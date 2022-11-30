@@ -109,6 +109,7 @@ input[type=submit] {
   padding: 5px;
   margin: 5px;
   float: right;
+  width: auto;
 }
 
 #show-page {
@@ -129,7 +130,10 @@ input[type=submit] {
 
 #add-destinations {
   display: grid;
-  grid-template-columns: 100px 100px;
+  grid-template-columns: 100px auto;
   grid-gap: 1rem;
-  
+}
+
+#add-destinations > input[type="submit"] {
+  grid-column-start: 2;
 }

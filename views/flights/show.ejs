@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' href='/stylesheets/style.css' />
-    <title>flight.flightNo</title>
+    <title>Flight Number <%= flight.flightNo%></title>
 </head>
 <body>
     <%- include('partials/nav') -%>
@@ -19,16 +19,14 @@
             <div><%= flight.airline %></div>
             <div>Departure Airport: </div>
             <div><%= flight.airport %></div>
-            <div>Destinations: </div>
-            <div><%= flight.desinations %></div>
         </section>
 
         <br><br><h2>Destinations</h2>
         <form id="add-destinations" method="POST"
-        action="/flights/<%= flight._id %>/reviews">
+        action="/flights/<%= flight._id %>/destinations">
         <label>Airport:</label>
         <select name="airport">
-            <option value="ATL">ATL</option>
+            <option value="AUS">AUS</option>
             <option value="DFW">DFW</option>
             <option value="DEN">DEN</option>
             <option value="LAX">LAX</option>
@@ -36,8 +34,30 @@
         </select>
         <label>Arrival:</label>
             <input type="datetime-local" name="arrival" %>">
-        <input type="submit" value="Add Review">
+        <input type="submit" value="Add Destination">
         </form>
+
+        <% if (flight.destinations.length) { %>
+            <h3>Destinations</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>Airport</th>
+                  <th>Arrival</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% flight.destinations.sort((a, b) => a.arrival - b.arrival).forEach(function(destination) { %>
+                  <tr>
+                    <td><%= destination.airport %></td>
+                    <td><%= destination.arrival %></td>
+                  </tr>
+                <% }); %>
+              </tbody>
+            </table>
+          <% } else { %>
+            <h5>No Desinations</h5>
+          <% } %>
     </main>
 </body>
 </html>

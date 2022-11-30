@@ -33,6 +33,8 @@ function create(req, res, next) {
 
 function show(req, res, next) {
     Flight.findById(req.params.id, (err, flight) => {
+        console.log(flight);
+        
         if (err) {
             console.log(err);
             return res.send('Error showing, check terminal')
