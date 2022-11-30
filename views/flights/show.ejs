@@ -9,17 +9,35 @@
 </head>
 <body>
     <%- include('partials/nav') -%>
-    <section id="show-page">
-        <div>Flight Number: </div>
-        <div><%= flight.flightNo %></div>
-        <div>Date: </div>
-        <div><%= flight.departs %></div>
-        <div>Airline: </div>
-        <div><%= flight.airline %></div>
-        <div>Departure Airport: </div>
-        <div><%= flight.airport %></div>
-        <div>Destinations: </div>
-        <div><%= flight.desinations %></div>
-      </section>
+    <main>
+        <section id="show-page">
+            <div>Flight Number: </div>
+            <div><%= flight.flightNo %></div>
+            <div>Date: </div>
+            <div><%= flight.departs %></div>
+            <div>Airline: </div>
+            <div><%= flight.airline %></div>
+            <div>Departure Airport: </div>
+            <div><%= flight.airport %></div>
+            <div>Destinations: </div>
+            <div><%= flight.desinations %></div>
+        </section>
+
+        <br><br><h2>Destinations</h2>
+        <form id="add-destinations" method="POST"
+        action="/flights/<%= flight._id %>/reviews">
+        <label>Airport:</label>
+        <select name="airport">
+            <option value="ATL">ATL</option>
+            <option value="DFW">DFW</option>
+            <option value="DEN">DEN</option>
+            <option value="LAX">LAX</option>
+            <option value="SAN">SAN</option>
+        </select>
+        <label>Arrival:</label>
+            <input type="datetime-local" name="arrival" %>">
+        <input type="submit" value="Add Review">
+        </form>
+    </main>
 </body>
 </html>
