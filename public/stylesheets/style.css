@@ -118,6 +118,7 @@ input[type=submit] {
   grid-gap: 1rem;
   margin-top: 50px;
   padding: 10px;
+  font-size: 30px;
 }
 
 #show-page > div {
