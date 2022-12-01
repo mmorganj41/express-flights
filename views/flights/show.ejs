@@ -75,15 +75,17 @@
                   </thead>
                   <!-- <% if (tickets.length) { %> -->
                   <tbody>
-                    <tr>
-                      <td>Seat</td>
-                      <td>Price</td>
-                      <td>
-                        <form action="????_method=DELETE" method="post" id="deleteticket">
-                          <button type="submit">DELETE</button>
-                        </form>
-                      </td>
-                    </tr>
+                    <% tickets.forEach(t => { %>
+                      <tr>
+                        <td><%= t.seat %></td>
+                        <td><%= t.price %></td>
+                        <td>
+                          <form action="????_method=DELETE" method="post" id="deleteticket">
+                            <button type="submit">DELETE</button>
+                          </form>
+                        </td>
+                      </tr>
+                    <% }) %>
                   </tbody>
                   <!-- <% } %> -->
                 </table>

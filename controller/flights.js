@@ -40,7 +40,7 @@ function show(req, res, next) {
             return res.send('Error showing, check terminal')
         }
 
-        Ticket.find({}, (err, tickets) => {
+        Ticket.find({flight: flight._id}, (err, tickets) => {
             if (err) {
                 console.log(err);
                 return res.send('Error finding tickets, check terminal')
