@@ -6,7 +6,18 @@ function newTicket(req, res, next) {
 }
 
 function create(req, res, next) {
-    res.redirect(`/flights/${req.params.id}`);
+    req.body.flight = req.params.id;
+
+    Ticket.create(req.body, (err, ticket) => {
+        if (err) {
+            console.log(err);
+            return res.redirect(`/flights/${req.params.id}/tickets/new`);
+        }
+        console.log(ticket);
+
+        res.redirect(`/flights/${req.params.id}`);
+    })
+    
 }
 
 module.exports = {
