@@ -24,7 +24,7 @@ function create(req, res, next) {
 }
 
 function deleteOne(req, res, next) {
-    console.log(req.params.id);
+
     Flight.findOne({'destinations._id': req.params.id}, (err, flight) => {
         if (err) {
             console.log(err);

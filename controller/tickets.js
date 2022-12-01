@@ -21,7 +21,32 @@ function create(req, res, next) {
 }
 
 function deleteTicket(req, res, next) {
-    res.redirect(`/flights/`);
+    Ticket.findById(req.params.id, (err, ticket) => {
+        if (err) {
+            console.log(err)
+            return res.redirect('/flights');
+        }
+            console.log(ticket);
+            let flight = ticket.flight;
+
+            ticket.remove(err => {
+                if (err) {
+                    console.log(err)
+                    return res.redirect('/flights');
+                }
+                    res.redirect(`/flights/${flight}`);
+            })
+    })
+
+    // Ticket.remove({_id: req.params.id}, (err, ticket) => {
+    //     if (err) {
+    //         console.log(err)
+    //         res.redirect('/flights');
+    //     }
+    //     console.log(ticket);
+    //     res.redirect(`/flights/${ticket.flight}`);
+    // });
+    
 }
 
 module.exports = {
