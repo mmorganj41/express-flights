@@ -20,7 +20,12 @@ function create(req, res, next) {
     
 }
 
+function deleteTicket(req, res, next) {
+    res.redirect(`/flights/`);
+}
+
 module.exports = {
     new: newTicket,
     create,
+    delete: deleteTicket,
 }

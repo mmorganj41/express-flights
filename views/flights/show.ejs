@@ -80,7 +80,7 @@
                         <td><%= t.seat %></td>
                         <td><%= t.price %></td>
                         <td>
-                          <form action="????_method=DELETE" method="post" id="deleteticket">
+                          <form action=<%= `/tickets/${t._id}/?_method=DELETE` %> method="post" id="deleteticket">
                             <button type="submit">DELETE</button>
                           </form>
                         </td>
