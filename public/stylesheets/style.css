@@ -116,7 +116,7 @@ input[type=submit] {
   display: grid;
   grid-template-columns: auto auto;
   grid-gap: 1rem;
-  margin: 50px;
+  margin-top: 50px;
   padding: 10px;
 }
 
@@ -136,4 +136,15 @@ input[type=submit] {
 
 #add-destinations > input[type="submit"] {
   grid-column-start: 2;
+}
+
+#references {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+#references > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
