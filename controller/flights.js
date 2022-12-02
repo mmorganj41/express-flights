@@ -1,16 +1,15 @@
 const Flight = require('../model/flight');
 const Ticket = require('../model/ticket')
 
-function index(req, res, next) {
-    Flight.find({}, (err, flights) => {
-        if (err) {
-            console.log(err);
-            res.redirect('/');
-        } else {
-            console.log(flights);
-            res.render('flights/index', {flights: flights.sort((a,b) => a.departs - b.departs)});
-        }
-    })   
+async function index(req, res, next) {
+    try {
+		const flights = await Flight.find({})
+		console.log(flights);
+		res.render('flights/index', {flights: flights.sort((a,b) => a.departs - b.departs)});
+	} catch(err) {
+		console.log(err);
+		res.redirect('/');
+	} 
 }
 
 function newFlight(req, res, next) {
