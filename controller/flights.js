@@ -29,23 +29,16 @@ async function create(req, res, next) {
 	}
 }
 
-function show(req, res, next) {
-    Flight.findById(req.params.id, (err, flight) => {
-        console.log(flight);
-        if (err) {
-            console.log(err);
-            return res.send('Error showing, check terminal')
-        }
-
-        Ticket.find({flight: flight._id}, (err, tickets) => {
-            if (err) {
-                console.log(err);
-                return res.send('Error finding tickets, check terminal')
-            }
-
-            res.render('flights/show', {flight, tickets});
-        });
-    });
+async function show(req, res, next) {
+	try {
+		const flight = await Flight.findById(req.params.id);
+		console.log(flight);
+		const tickets = await Ticket.find({flight: flight._id});
+		res.render('flights/show', {flight, tickets});
+	} catch(err) {
+		console.log(err);
+		return res.send('Error showing, check terminal')
+	}
 }
 
 module.exports = {
