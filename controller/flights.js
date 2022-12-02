@@ -37,7 +37,7 @@ async function show(req, res, next) {
 		res.render('flights/show', {flight, tickets});
 	} catch(err) {
 		console.log(err);
-		return res.send('Error showing, check terminal')
+		res.send('Error showing, check terminal')
 	}
 }
 
