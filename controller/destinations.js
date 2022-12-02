@@ -9,7 +9,7 @@ async function create(req, res, next) {
 		res.redirect(`/flights/${req.params.id}`);
 	} catch(err) {
 		console.log(err);
-		return res.send('Error finding by ID check terminal');
+		res.send('Error finding by ID check terminal');
 	}    
 }
 
@@ -22,7 +22,7 @@ async function deleteOne(req, res, next) {
 		res.redirect(`/flights/${flight._id}`);
 	} catch(err) {
 		console.log(err);
-		return res.send('Error finding destination to delete');
+		res.send('Error finding destination to delete');
 	}
 }
 

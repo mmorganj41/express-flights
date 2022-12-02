@@ -27,7 +27,7 @@ async function deleteTicket(req, res, next) {
 		res.redirect(`/flights/${flight}`);
 	} catch(err) {
 		console.log(err)
-		return res.redirect('/flights');
+		res.redirect('/flights');
 	}
 }
 
