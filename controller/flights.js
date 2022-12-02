@@ -17,18 +17,16 @@ function newFlight(req, res, next) {
     res.render('flights/new', {defaultDeparture: newFlight.departs});
 };
 
-function create(req, res, next) {
-    console.log(req.body);
-    Flight.create(req.body, function(err, flight) {
-        if(err){
-            console.log(err);
-            res.redirect('/flights/new');
-        } else {
-            console.log(flight)
+async function create(req, res, next) {
+	try {
+		const flight = await Flight.create(req.body);
 
-            res.redirect('/flights/');
-        }
-    })
+		console.log(flight)
+		res.redirect('/flights/');
+	} catch(err) {
+		console.log(err);
+		res.redirect('/flights/new');
+	}
 }
 
 function show(req, res, next) {
