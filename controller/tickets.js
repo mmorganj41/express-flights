@@ -20,11 +20,8 @@ async function create(req, res, next) {
 
 async function deleteTicket(req, res, next) {
 	try {
-		const ticket = await Ticket.findById(req.params.id);
-		console.log(ticket);
-		let flight = ticket.flight;
-		await ticket.remove();
-		res.redirect(`/flights/${flight}`);
+		const removedTicket = await Ticket.findByIdAndDelete(req.params.id);
+		res.redirect(`/flights/${removedTicket.flight}`);
 	} catch(err) {
 		console.log(err)
 		res.redirect('/flights');
